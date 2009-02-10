@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ambientideas</groupId>
+  <artifactId>jnlpdemo</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>jnlpdemo</name>
+  <url>http://github/matthewmcc/demos</url>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo.webstart</groupId>
+        <artifactId>webstart-maven-plugin</artifactId>
+        <version>1.0-beta-1-SNAPSHOT</version>
+        
+        <!-- Bind to the package phase and run the jnlp-inline goal -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>jnlp-inline</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+        
+        <configuration>
+          <!-- Set to true to exclude all transitive maven dependencies. Default is false. -->
+          <excludeTransitive>false</excludeTransitive>
+
+          <!-- The path where the libraries are stored within the jnlp structure.-->
+          <!-- By default the libraries (3p JARs) are saved parallel to the JNLP working directory -->
+          <libPath>lib</libPath>
+          
+          <!-- Resources allows you to list additional items that will be bundled with the JNLP zip -->
+          <!--resourcesDirectory>${project.basedir}/src/main/jnlp/resources</resourcesDirectory-->
+          
+          <jnlp>
+            <!-- default values -->
+            <!--inputTemplateResourcePath>${project.basedir}</inputTemplateResourcePath-->
+            <!--inputTemplate>src/main/jnlp/template.vm</inputTemplate-->
+            <!-- relative to inputTemplateResourcePath -->
+
+            <!-- defaults to launch.jnlp -->
+            <outputFile>app.jnlp</outputFile>
+
+            <!-- used to automatically identify the jar containing the main class. -->
+            <mainClass>com.ambientideas.App</mainClass>
+          </jnlp>
+
+          <!-- Use the new pack200 compression? -->
+          <pack200>true</pack200>
+
+          <!-- Use GZip compression on JARs -->
+          <gzip>true</gzip>
+          
+          <!-- causes a version attribute to be output in each jar resource element, optional, default is false -->
+          <outputJarVersions>true</outputJarVersions>
+          
+          <verbose>true</verbose>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <dependencies>
+    <!-- An esoteric dependency just to demonstrate the ability to include 3P JARs in the JNLP distro -->
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+  </dependencies>
+</project>
