@@ -1,0 +1,1 @@
+The purpose of this lab is to show the barest possible maven pom.xml
