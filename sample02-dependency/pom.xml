@@ -6,7 +6,8 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>sample</name>
-  <url>http://maven.apache.org</url>
+  <url>http://github.com/matthewmccullough/maven-training/tree/master</url>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

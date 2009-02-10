@@ -6,7 +6,7 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>jnlpdemo</name>
-  <url>http://github/matthewmcc/demos</url>
+  <url>http://github.com/matthewmccullough/maven-training/tree/master</url>
   
   <build>
     <plugins>
