@@ -1,0 +1,1 @@
+Demonstrate a multimodule build where the plugin is defined in a pluginmanagement section at the top pom, and used with the minimal artifactId for the plugin, allowing the version and config to be inherited.
