@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ambientideas</groupId>
+  <artifactId>echoantrun-pluginmanagement</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Echo Antrun PluginManagement Project</name>
+  <url>http://github.com/matthewmccullough/maven-training/tree/master</url>
+  
+  <modules>
+    <module>childproj</module>
+  </modules>
+  
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.1</version>
+          <executions>
+            <execution>
+              <id>echodir</id>
+              <goals>
+                <goal>run</goal>
+              </goals>
+              <phase>install</phase>
+              <configuration>
+                <tasks>
+                  <echo>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</echo>
+                  <echo>!!!!!!!!!!!! ECHO1 Build Dir: ${project.build.directory}</echo>
+                  <echo>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</echo>
+                </tasks>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
