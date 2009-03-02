@@ -12,7 +12,6 @@
     <plugins>
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.1</version>
         <executions>
           <execution>
             <id>echodir</id>
@@ -20,7 +19,6 @@
               <goal>run</goal>
             </goals>
             <phase>package</phase>
-            <inherited>false</inherited>
             <configuration>
               <tasks>
                 <echo>ECHO1 Build Dir: ${project.build.directory}</echo>
