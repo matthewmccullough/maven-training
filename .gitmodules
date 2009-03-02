@@ -1,0 +1,3 @@
+[submodule "sample11-gitscm_submodule.git"]
+	path = sample11-gitscm_submodule.git
+	url = git@github.com:matthewmccullough/maven-training-samplegitscm.git
