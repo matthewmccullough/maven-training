@@ -2,11 +2,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ambientideas</groupId>
-  <artifactId>sample-dependency</artifactId>
+  <artifactId>sample-defaultgoal</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Sample Project - One Dependency</name>
+  <name>Sample Project - Default Goal</name>
   <url>http://github.com/matthewmccullough/maven-training/tree/master</url>
+  
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
   
   <dependencies>
     <dependency>

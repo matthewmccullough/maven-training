@@ -1,0 +1,1 @@
+This project shows off the <defaultGoal> tag, allowing users to just type mvn at the command prompt.
