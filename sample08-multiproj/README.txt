@@ -9,3 +9,10 @@ Lab Steps:
 2) "mvn reactor:make -"
 
 mvn reactor:resume -Dmake.folders=barBusinessLogic -Dmake.goals=install,-DskipTests
+
+
+Also useful for showcasing dependency goals:
+mvn dependency:analyze
+mvn dependency:resolve
+mvn dependency:resolve-plugins
+mvn dependency:go-offline
