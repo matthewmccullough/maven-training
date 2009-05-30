@@ -1,0 +1,1 @@
+mvn reactor:make-dependents -Dmake.artifacts=com.ambientideas:sample-multimodulejava-module3
