@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ambientideas</groupId>
+  <artifactId>sample-multimodulejava-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Sample Multimodule Java Parent</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <modules>
+    <module>sample-multimodulejava-module1</module>
+    <module>sample-multimodulejava-module2</module>
+    <module>sample-multimodulejava-module3</module>
+    <module>sample-multimodulejava-module4</module>
+    <module>sample-multimodulejava-module5</module>
+    <module>sample-multimodulejava-module6</module>
+  </modules>
+</project>
