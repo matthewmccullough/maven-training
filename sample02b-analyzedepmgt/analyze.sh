@@ -1,0 +1,1 @@
+mvn dependency:analyze-dep-mgt -Dmdep.analyze.ignore.direct=false
