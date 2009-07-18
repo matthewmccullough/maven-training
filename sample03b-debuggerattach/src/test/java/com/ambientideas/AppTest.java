@@ -34,8 +34,15 @@ public class AppTest
     public void testApp()
     {
     	System.out.println("Hello World! This is a JUnit test!");
-        assertTrue( false );
-        //Comments here
-        //And more comments
+    	App.main(null);
+    }
+    
+    /**
+     * Rigourous Test :-)
+     */
+    public void testSum()
+    {
+    	System.out.println("This is a JUnit test of a sum.");
+        assertEquals(9, App.sum(5, 4));
     }
 }
