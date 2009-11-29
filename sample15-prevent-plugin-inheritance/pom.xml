@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.ambientideas</groupId>
+  <artifactId>sample-multimodulejava-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Sample Multimodule Plugin Inheritance Prevention Parent</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <modules>
+    <module>sample-multimodulejava-module1</module>
+    <module>sample-multimodulejava-module2</module>
+  </modules>
+
+	<build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <!-- Stop inheritance to children of plugin config -->
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>echodir</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <phase>package</phase>
+            <!-- Stop inheritance to children of plugin execution bindings -->
+            <inherited>false</inherited>
+            <configuration>
+              <tasks>
+                <echo>THIS SHOULD ONLY RUN ONCE AT THE TOP LEVEL. Build Dir: ${project.build.directory}</echo>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
