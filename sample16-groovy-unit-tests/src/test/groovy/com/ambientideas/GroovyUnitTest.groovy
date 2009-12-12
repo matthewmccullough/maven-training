@@ -1,10 +1,10 @@
 package com.ambientideas
 
-//Causes compile to fail
-//import junit.framework.TestCase
+//import groovy.util.GroovyTestCase
 
 //Causes compile to fail
-//public class GroovyUniTest extends TestCase
+//public class GroovyUnitTest extends TestCase
+//public class GroovyUnitTest extends GroovyTestCase
 public class GroovyUnitTest
 {
     public void testJavaUnitTestObject()
