@@ -57,7 +57,7 @@
 								Skip the test stubs or we have duplicate classes showing up in
 								Eclipse
 							-->
-							<!--  <goal>generateTestStubs</goal> -->
+							<goal>generateTestStubs</goal>
 							<goal>testCompile</goal>
 						</goals>
 					</execution>
@@ -66,7 +66,7 @@
 					<dependency>
 						<groupId>org.codehaus.groovy</groupId>
 						<artifactId>groovy-all</artifactId>
-						<version>1.7-beta-1</version>
+						<version>1.7-rc-2</version>
 						<!--
 							Notice I set the scope to provided, same as in the 1.2 plugin pom
 							linked above
