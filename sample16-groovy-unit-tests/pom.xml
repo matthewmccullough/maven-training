@@ -1,83 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ambientideas</groupId>
-    <artifactId>sample-groovy-jointcompilation</artifactId>
-    <name>Sample Groovy+Java Joint Test+Src Compilation</name>
-    <version>1.0-SNAPSHOT</version>
- 
+	<groupId>com.ambientideas</groupId>
+	<artifactId>sample-groovy-jointcompilation</artifactId>
+	<name>Sample Groovy+Java Joint Test+Src Compilation</name>
+	<version>1.0-SNAPSHOT</version>
 
-    <dependencies>
-        <!-- No Longer Useful.  Better to use groovy-all
-        <dependency>
-            <groupId>org.codehaus.groovy.maven.runtime</groupId>
-            <artifactId>gmaven-runtime-default</artifactId>
-            <version>1.0-rc-3</version>
-            <scope>test</scope>
-        </dependency>
-        -->
-        <dependency>
-		    <groupId>org.codehaus.groovy</groupId>
-		    <artifactId>groovy-all</artifactId>
-		    <version>1.7-rc-2</version>
-    	</dependency>
-        
-        <!-- We are using an old JUnit because we're not using annotations yet -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.6</version>
-            <!-- Bizarre! Has to be at least provided scope, not test scope, to get tests to compile -->
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-    
-    
+	<dependencies>
+	<!--
+		No Longer Useful. Better to use groovy-all <dependency>
+		<groupId>org.codehaus.groovy.maven.runtime</groupId>
+		<artifactId>gmaven-runtime-default</artifactId>
+		<version>1.0-rc-3</version> <scope>test</scope> </dependency>
+	-->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>1.7-rc-2</version>
+		</dependency>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.gmaven</groupId>
-                <artifactId>gmaven-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generateStubs</goal>
-                            <goal>compile</goal>
-                            <!-- Skip the test stubs or we have duplicate classes showing up in Eclipse -->
-                            <!--  <goal>generateTestStubs</goal> -->
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-			        <dependency>
-			          <groupId>org.codehaus.groovy</groupId>
-			          <artifactId>groovy-all</artifactId>
-			          <version>1.7-beta-1</version><!--
-			           Notice I set the scope to provided, same as in the 1.2 plugin pom linked above 
-			          --><scope>provided</scope>
-			        </dependency>
-		      	</dependencies>
-		      	<configuration>
-			        <sources>
-			          <fileset>
-			            <directory>${pom.basedir}/src/main/groovy</directory>
-			            <directory>${pom.basedir}/src/main/java</directory>
-			            <directory>${pom.basedir}/src/test/groovy</directory>
-			            <directory>${pom.basedir}/src/test/java</directory>
-			            <includes>
-			              <include>**/*.groovy</include>
-			              <include>**/*.java</include>
-			            </includes>
-			          </fileset>
-			        </sources>
-		        </configuration>
-            </plugin>
-        </plugins>
-    </build>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.6</version>
+			<!--
+				Bizarre! Has to be at least provided scope, not test scope, to get
+				tests to compile
+			-->
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<!-- Only one source directory is allowed per Maven project, unless the build-helper plugin is used -->
+		<!-- http://www.mail-archive.com/users@maven.apache.org/msg70821.html -->
+		<!-- http://mojo.codehaus.org/build-helper-maven-plugin/ -->
+		<sourceDirectory>src/main/groovy</sourceDirectory>	
+		<testSourceDirectory>src/test/groovy</testSourceDirectory>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.gmaven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generateStubs</goal>
+							<goal>compile</goal>
+							<!--
+								Skip the test stubs or we have duplicate classes showing up in
+								Eclipse
+							-->
+							<!--  <goal>generateTestStubs</goal> -->
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-all</artifactId>
+						<version>1.7-beta-1</version>
+						<!--
+							Notice I set the scope to provided, same as in the 1.2 plugin pom
+							linked above
+						-->
+						<scope>provided</scope>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<sources>
+						<fileset>
+							<directory>${pom.basedir}/src/main/groovy</directory>
+							<directory>${pom.basedir}/src/test/groovy</directory>
+							<includes>
+								<include>**/*.groovy</include>
+								<include>**/*.java</include>
+							</includes>
+						</fileset>
+					--></sources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

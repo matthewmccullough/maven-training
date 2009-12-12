@@ -8,6 +8,6 @@ public class Main {
 	}
 
 	public static void callHelp() {
-	  //Helper.printHelp()
+	  Helper.printHelp()
 	}
 }
