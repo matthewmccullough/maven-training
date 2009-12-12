@@ -7,7 +7,7 @@ public class JavaUnitTest extends TestCase
 {
     public void testJavaUnitTestObject() {
         JavaUnitTestObject a = new JavaUnitTestObject();
-        assertTrue(a.equals("DemoData"));
+        assertTrue(a.attr.equals("DemoData"));
     }
     
     public void testGroovyUnitTestObject() {
