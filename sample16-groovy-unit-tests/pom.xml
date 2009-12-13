@@ -72,7 +72,7 @@
 						Bizarre! Has to be at least provided scope, not test scope, to get
 						tests to compile
 					-->
-					<scope>provided</scope>
+					<scope>test</scope>
 				</dependency>
 			</dependencies>
 			
