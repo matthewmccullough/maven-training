@@ -12,7 +12,7 @@
 	<profiles>
 		<!-- This profile functions correctly and is fashioned like the 2009-12-12 gmaven archetype -->
 		<profile>
-			<id>runtimedefault</id>
+			<id>archetypeold</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
@@ -56,7 +56,7 @@
 		
 		<!-- This profile fails in a number of ways and attempted to use a newer Groovy 1.7 and newer gmaven plugin -->
 		<profile>
-			<id>groovyall</id>
+			<id>groovynew</id>
 			<dependencies>
 				<dependency>
 					<groupId>org.codehaus.groovy</groupId>
@@ -92,26 +92,27 @@
 								</goals>
 							</execution>
 						</executions>
-						<dependencies>
-							<dependency>
-								<groupId>org.codehaus.groovy</groupId>
-								<artifactId>groovy-all</artifactId>
-								<version>1.7-rc-2</version>
-								<!--
-									Notice I set the scope to provided, same as in the 1.2 plugin pom
-									linked above
-								-->
-								<scope>provided</scope>
-							</dependency>
-						</dependencies>
 						
 						<!--
-						Adding the following config causes the compile to fail
+						Adding the following causes the compile to fail
 						[INFO] [groovy:generateStubs {execution: default}]
 						[ERROR] BUILD ERROR
 						[INFO] Unexpected node: Node[3:1,64,ANNOTATIONS]
 						-->
-						<!--
+						<!--<dependencies>
+							<dependency>
+								<groupId>org.codehaus.groovy</groupId>
+								<artifactId>groovy-all</artifactId>
+								<version>1.7-rc-2</version>
+								
+									Notice I set the scope to provided, same as in the 1.2 plugin pom
+									linked above
+								
+								<scope>provided</scope>
+							</dependency>
+						</dependencies> -->
+						
+						<!-- Only need to configure this if your groovy locations are non-standard (not src/xxx/groovy)
 						<configuration>
 							<sources>
 								<fileset>
