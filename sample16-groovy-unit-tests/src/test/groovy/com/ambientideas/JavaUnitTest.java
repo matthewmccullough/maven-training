@@ -11,7 +11,7 @@ public class JavaUnitTest extends TestCase
     }
     
     public void testGroovyUnitTestObject() {
-        //GroovyUnitTestObject a = new GroovyUnitTestObject();
-        //assertTrue(a.equals("DemoData"));
+        GroovyUnitTestObject a = new GroovyUnitTestObject();
+        assertTrue(a.attr.equals("DemoData"));
     }
 }
