@@ -1,204 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.ambientideas</groupId>
-	<artifactId>sample-groovy-jointcompilation</artifactId>
-	<name>Sample Groovy+Java Joint Test+Src Compilation</name>
-	<version>1.0-SNAPSHOT</version>
-	
-	<profiles>
-		<!-- This profile attempts to use a newer Groovy 1.7 and newer gmaven plugin -->
-		<profile>
-			<id>groovy_16_17</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<dependencies>
-				<dependency>
-				  <groupId>org.codehaus.gmaven.runtime</groupId>
-				  <artifactId>gmaven-runtime-1.7</artifactId>
-				  <version>1.2</version>
-				</dependency>
-				
-				<dependency>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-					<version>4.7</version>
-					<scope>compile</scope>
-				</dependency>
-			</dependencies>
-			
-			<build>
-				<plugins>
-					<plugin>
-				        <groupId>org.apache.maven.plugins</groupId>
-				        <artifactId>maven-compiler-plugin</artifactId>
-				       
-						<executions>
-							<execution> 
-				        	<phase>generate-resources</phase>
-							    
-								<goals>
-									<goal>compile</goal>
-									<goal>testCompile</goal>
-								</goals>
-						  	</execution>
-						</executions>
-                    </plugin>
-						    
-					<plugin>
-						<groupId>org.codehaus.gmaven</groupId>
-						<artifactId>gmaven-plugin</artifactId>
-						<version>1.2</version>
-						<executions>
-							<execution>
-								<id>default</id>
-							
-								<!--
-									Binding to the generate-resources phase so that when the eclipse:eclipse plugin is explicitly called
-									(which is bound to the generate-resources phase), the gmaven plugin will have augmented the
-									classpath with entries so that groovy-stubs/test will get written like so
-									<classpathentry kind="src" path="target/generated-sources/groovy-stubs/test" output="target/test-classes" including="**/*.java"/>
-									 
-									Details on the eclipse:eclipse lifecycle binding can be found at:
-									http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html
-								-->
-							    <phase>generate-resources</phase>
-							    
-								<goals>
-									<goal>generateStubs</goal>
-									<goal>generateTestStubs</goal>
-								</goals>
-								
-								<configuration>
-									<outputDirectory>${project.build.directory}/generated-sources/groovy-stubs</outputDirectory>
-									<sources>
-										<fileset>
-											<directory>${pom.basedir}/src/main/java</directory>
-											<directory>${pom.basedir}/src/test/java</directory>
-											<includes>
-												<include>**/*.groovy</include>
-												<include>**/*.java</include>
-											</includes>
-										</fileset>
-									</sources>
-								</configuration>
-							</execution>
-							
-							<execution>
-								<id>my-test-stubs</id>
-							
-								<!--
-									Binding to the generate-resources phase so that when the eclipse:eclipse plugin is explicitly called
-									(which is bound to the generate-resources phase), the gmaven plugin will have augmented the
-									classpath with entries so that groovy-stubs/test will get written like so
-									<classpathentry kind="src" path="target/generated-sources/groovy-stubs/test" output="target/test-classes" including="**/*.java"/>
-									 
-									Details on the eclipse:eclipse lifecycle binding can be found at:
-									http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html
-								-->
-							    <phase>test</phase>
-							    
-								<goals>
-									<goal>generateStubs</goal>
-									<goal>generateTestStubs</goal>
-								</goals>
-								
-								<configuration>
-									<outputDirectory>${project.build.directory}/generated-sources/groovy-stubs</outputDirectory>
-									<sources>
-										<fileset>
-											<directory>${pom.basedir}/src/main/java</directory>
-											<directory>${pom.basedir}/src/test/java</directory>
-											<includes>
-												<include>**/*.groovy</include>
-												<include>**/*.java</include>
-											</includes>
-										</fileset>
-									</sources>
-								</configuration>
-							</execution>
-							
-							<execution>
-								<id>my-compile</id>
-							
-								<phase>generate-resources</phase>
-								<!--
-									Binding to the generate-resources phase so that when the eclipse:eclipse plugin is explicitly called
-									(which is bound to the generate-resources phase), the gmaven plugin will have augmented the
-									classpath with entries so that groovy-stubs/test will get written like so
-									<classpathentry kind="src" path="target/generated-sources/groovy-stubs/test" output="target/test-classes" including="**/*.java"/>
-									 
-									Details on the eclipse:eclipse lifecycle binding can be found at:
-									http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html
-								-->
-<!--							    <phase>generate-resources</phase>-->
-							    
-								<goals>
-									<goal>compile</goal>
-									<goal>testCompile</goal>
-								</goals>
-							</execution>
-							
+  <groupId>com.ambientideas</groupId>
+  <artifactId>sample-groovy-jointcompilation</artifactId>
+  <name>Sample Groovy+Java Joint Test+Src Compilation</name>
+  <version>1.0-SNAPSHOT</version>
+  
+  <profiles>
+    <!-- This profile attempts to use a newer Groovy 1.7 and newer gmaven plugin -->
+    <profile>
+      <id>groovy_16_17</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.codehaus.gmaven.runtime</groupId>
+          <artifactId>gmaven-runtime-1.7</artifactId>
+          <version>1.2</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.7</version>
+          <scope>compile</scope>
+        </dependency>
+      </dependencies>
+      
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+               
+            <executions>
+              <execution> 
+                <phase>generate-resources</phase>
+                  
+                <goals>
+                  <goal>compile</goal>
+                  <goal>testCompile</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+                
+          <plugin>
+            <groupId>org.codehaus.gmaven</groupId>
+            <artifactId>gmaven-plugin</artifactId>
+            <version>1.2</version>
+            <executions>
+              <execution>
+                <id>default</id>
+              
+                <!--
+                  Binding to the generate-resources phase so that when the eclipse:eclipse plugin is explicitly called
+                  (which is bound to the generate-resources phase), the gmaven plugin will have augmented the
+                  classpath with entries so that groovy-stubs/test will get written like so
+                  <classpathentry kind="src" path="target/generated-sources/groovy-stubs/test" output="target/test-classes" including="**/*.java"/>
+                   
+                  Details on the eclipse:eclipse lifecycle binding can be found at:
+                  http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html
+                -->
+                  <phase>generate-resources</phase>
+                  
+                <goals>
+                  <goal>generateStubs</goal>
+                  <goal>generateTestStubs</goal>
+                </goals>
+                
+                <configuration>
+                  <outputDirectory>${project.build.directory}/generated-sources/groovy-stubs</outputDirectory>
+                  <sources>
+                    <fileset>
+                      <directory>${pom.basedir}/src/main/java</directory>
+                      <directory>${pom.basedir}/src/test/java</directory>
+                      <includes>
+                        <include>**/*.groovy</include>
+                        <include>**/*.java</include>
+                      </includes>
+                    </fileset>
+                  </sources>
+                </configuration>
+              </execution>
+              
+              <execution>
+                <id>my-test-stubs</id>
+              
+                <!--
+                  Binding to the generate-resources phase so that when the eclipse:eclipse plugin is explicitly called
+                  (which is bound to the generate-resources phase), the gmaven plugin will have augmented the
+                  classpath with entries so that groovy-stubs/test will get written like so
+                  <classpathentry kind="src" path="target/generated-sources/groovy-stubs/test" output="target/test-classes" including="**/*.java"/>
+                   
+                  Details on the eclipse:eclipse lifecycle binding can be found at:
+                  http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html
+                -->
+                  <phase>test</phase>
+                  
+                <goals>
+                  <goal>generateStubs</goal>
+                  <goal>generateTestStubs</goal>
+                </goals>
+                
+                <configuration>
+                  <outputDirectory>${project.build.directory}/generated-sources/groovy-stubs</outputDirectory>
+                  <sources>
+                    <fileset>
+                      <directory>${pom.basedir}/src/main/java</directory>
+                      <directory>${pom.basedir}/src/test/java</directory>
+                      <includes>
+                        <include>**/*.groovy</include>
+                        <include>**/*.java</include>
+                      </includes>
+                    </fileset>
+                  </sources>
+                </configuration>
+              </execution>
+              
+              <execution>
+                <id>my-compile</id>
+              
+                <phase>generate-resources</phase>
+                <!--
+                  Binding to the generate-resources phase so that when the eclipse:eclipse plugin is explicitly called
+                  (which is bound to the generate-resources phase), the gmaven plugin will have augmented the
+                  classpath with entries so that groovy-stubs/test will get written like so
+                  <classpathentry kind="src" path="target/generated-sources/groovy-stubs/test" output="target/test-classes" including="**/*.java"/>
+                   
+                  Details on the eclipse:eclipse lifecycle binding can be found at:
+                  http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html
+                -->
+<!--                  <phase>generate-resources</phase>-->
+                  
+                <goals>
+                  <goal>compile</goal>
+                  <goal>testCompile</goal>
+                </goals>
+              </execution>
+              
 
-						</executions>
-						
-						<dependencies>
-							<!--
-								Adding the following dependency on groovy-all 1.7 causes the compile to fail
-								[INFO] [groovy:generateStubs {execution: default}]
-								[ERROR] BUILD ERROR
-								[INFO] Unexpected node: Node[3:1,64,ANNOTATIONS]
-							-->
-							<!--
-							<dependency>
-								<groupId>org.codehaus.groovy</groupId>
-								<artifactId>groovy-all</artifactId>
-								<version>1.7-rc-2</version>
-								<scope>provided</scope>
-							</dependency>
-							-->
-							<dependency>
-							  <groupId>org.codehaus.gmaven.runtime</groupId>
-							  <artifactId>gmaven-runtime-1.6</artifactId>
-							  <version>1.2</version>
-							</dependency>
-						</dependencies>
-						
-						<!-- Only need to configure this if your groovy locations are non-standard (not src/xxx/groovy) -->
-						<!-- If these paths are configured, JUnit has to be provided scoped instead of test scoped -->
-						<!-- ERROR: class file for junit.framework.TestCase not found.  public class GroovyUnitTest -->
-						
-						<configuration>
-							<sources>
-								<fileset>
-									<directory>${pom.basedir}/src/main/java</directory>
-									<directory>${pom.basedir}/src/test/java</directory>
-									<includes>
-										<include>**/*.groovy</include>
-										<include>**/*.java</include>
-									</includes>
-								</fileset>
-							</sources>
-						</configuration>
-					   
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+            </executions>
+            
+            <dependencies>
+              <!--
+                Adding the following dependency on groovy-all 1.7 causes the compile to fail
+                [INFO] [groovy:generateStubs {execution: default}]
+                [ERROR] BUILD ERROR
+                [INFO] Unexpected node: Node[3:1,64,ANNOTATIONS]
+              -->
+              <!--
+              <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>1.7-rc-2</version>
+                <scope>provided</scope>
+              </dependency>
+              -->
+              <dependency>
+                <groupId>org.codehaus.gmaven.runtime</groupId>
+                <artifactId>gmaven-runtime-1.6</artifactId>
+                <version>1.2</version>
+              </dependency>
+            </dependencies>
+            
+            <!-- Only need to configure this if your groovy locations are non-standard (not src/xxx/groovy) -->
+            <!-- If these paths are configured, JUnit has to be provided scoped instead of test scoped -->
+            <!-- ERROR: class file for junit.framework.TestCase not found.  public class GroovyUnitTest -->
+            
+            <configuration>
+              <sources>
+                <fileset>
+                  <directory>${pom.basedir}/src/main/java</directory>
+                  <directory>${pom.basedir}/src/test/java</directory>
+                  <includes>
+                    <include>**/*.groovy</include>
+                    <include>**/*.java</include>
+                  </includes>
+                </fileset>
+              </sources>
+            </configuration>
+             
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
-	<build>
-		<!-- Only one source directory is allowed per Maven project, unless the build-helper plugin is used -->
-		<!-- http://www.mail-archive.com/users@maven.apache.org/msg70821.html -->
-		<!-- http://mojo.codehaus.org/build-helper-maven-plugin/ --><!--
-		<sourceDirectory>src/main/groovy</sourceDirectory>	
-		<testSourceDirectory>src/test/groovy</testSourceDirectory>
-		
-		
-	--></build>
+  <build>
+    <!-- Only one source directory is allowed per Maven project, unless the build-helper plugin is used -->
+    <!-- http://www.mail-archive.com/users@maven.apache.org/msg70821.html -->
+    <!-- http://mojo.codehaus.org/build-helper-maven-plugin/ --><!--
+    <sourceDirectory>src/main/groovy</sourceDirectory>  
+    <testSourceDirectory>src/test/groovy</testSourceDirectory>
+    
+    
+  --></build>
 
 </project>
