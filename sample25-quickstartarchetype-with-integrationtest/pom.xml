@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.sonatype.maven.archetype</groupId>
+  <artifactId>quickstartBROKENIT</artifactId>
+  <version>0.8.4-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+  <name>Sonatype Archetype :: Quickstart Archetype</name>
+  <description>A Maven archetype of a basic Java project.</description>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>2.0-alpha-4</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>2.0-alpha-4</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>integration-test</id>
+            <goals>
+              <goal>install</goal>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <cloneProjectsTo>${project.build.directory}/it/projects</cloneProjectsTo>
+          <goals>
+            <goal>org.apache.maven.plugins:maven-archetype-plugin:generate</goal>
+          </goals>
+          <!-- Doesn't work with Maven 3.0. Fails to copy archetype JAR to the local repo at target/it/repo/org/sonatype/maven/archetype/quickstart/.... http://jira.codehaus.org/browse/MINVOKER-99 --> <localRepositoryPath>${project.build.directory}/it/repo</localRepositoryPath> 
+          <pomIncludes>
+            <pomInclude>*</pomInclude>
+          </pomIncludes>
+          <projectsDirectory>${basedir}/src/it/projects</projectsDirectory>
+          <properties>
+            <archetypeArtifactId>${project.artifactId}</archetypeArtifactId>
+            <archetypeGroupId>${project.groupId}</archetypeGroupId>
+            <archetypeRepository>local</archetypeRepository>
+            <archetypeVersion>${project.version}</archetypeVersion>
+            <goals>install</goals>
+            <interactiveMode>false</interactiveMode>
+          </properties>
+          <streamLogs>true</streamLogs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
