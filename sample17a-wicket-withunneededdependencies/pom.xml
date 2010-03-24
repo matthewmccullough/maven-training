@@ -99,7 +99,7 @@
     
     <resources>
       <resource>
-        <filtering>false</filtering>
+        <filtering>true</filtering>
         <directory>src/main/resources</directory>
       </resource>
       <resource>
@@ -131,5 +131,11 @@
         <artifactId>maven-jetty-plugin</artifactId>
       </plugin>
     </plugins>
+    
+   
+    <filters>
+      <filter>src/main/filters/appfilters.properties</filter>
+    </filters>
+    
   </build>
 </project>
