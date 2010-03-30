@@ -1,31 +1,13 @@
 package com.ambientideas;
 
-import org.apache.wicket.PageParameters;
-import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.WebPage;
-
 /**
  * Homepage
  */
-public class HomePage extends WebPage {
+public class Utility {
 
 	private static final long serialVersionUID = 1L;
-	
-	private static final Utility util = new Utility();
 
-	// TODO Add any page properties or variables here
-
-    /**
-	 * Constructor that is invoked when page is invoked without a session.
-	 * 
-	 * @param parameters
-	 *            Page parameters
-	 */
-    public HomePage(final PageParameters parameters) {
-
-        // Add the simplest type of label
-        add(new Label("message", "If you see this message wicket is properly configured and running"));
-
+    public void worthlessMethod() {
         System.out.println("This is boilerplate output");
         System.out.println("This is more boilerplate output");
         System.out.println("This is even more boilerplate output");
@@ -38,7 +20,7 @@ public class HomePage extends WebPage {
         System.out.println("This is boilerplate output");
         System.out.println("This is more boilerplate output");
         System.out.println("This is even more boilerplate output");
-
-        // TODO Add your page's components here
+        
+        //TODO Clean up this copy-and-paste
     }
 }
