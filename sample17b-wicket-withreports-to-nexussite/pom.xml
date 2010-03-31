@@ -287,8 +287,20 @@
       <id>site</id> 
       <!-- <url>file:///Users/mccm06/Sites/sample14</url>  -->
       <url>dav:http://localhost:8081/nexus/content/sites/site</url>
-    </site> 
-  </distributionManagement>
   <!-- http://www.sonatype.com/people/2009/11/nexus-tips-and-tricks-publishing-maven-sites-to-nexus-14/ -->
   <!-- The resulting site can be viewed at http://localhost:8081/nexus/content/sites/site/ -->
+    </site>
+    
+    <repository>
+      <id>local-releases</id>
+      <name>Local Nexus Releases</name>
+      <url>dav:http://localhost:8081/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>local-snapshots</id>
+      <name>Local Nexus Snapshots</name>
+      <url>dav:http://localhost:8081/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
 </project>
