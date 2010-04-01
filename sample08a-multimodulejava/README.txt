@@ -1,0 +1,1 @@
+This project showcases a multimodule build.  Submodule 6 demonstrates pure aggregation rather than inheritance.
