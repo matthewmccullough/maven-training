@@ -5,6 +5,9 @@
       <groupId>com.ambientideas</groupId>
       <artifactId>sample-multimodulejava-parent</artifactId>
       <version>1.0-SNAPSHOT</version>
+      <!-- Not yet ready for this in Maven 3 where the parent pointer doesn't
+           specify a version and the child just points with a relativePath -->
+      <!-- <relativePath>../</relativePath> -->
   </parent>
   
   <groupId>com.ambientideas</groupId>
