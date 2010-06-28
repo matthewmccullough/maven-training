@@ -22,6 +22,8 @@
             <configuration>
               <tasks>
                 <echo>ECHO1 Build Dir: ${project.build.directory}</echo>
+                <echo>ECHO1 Settings Offline: ${settings.offline}</echo>
+                <echo>ECHO1 Settings Local Repo: ${settings.localRepository}</echo>
               </tasks>
             </configuration>
           </execution>
