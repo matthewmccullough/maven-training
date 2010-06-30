@@ -10,7 +10,7 @@ public class HomeJSPIT extends WebTestCase {
     }
 
     public void testHomeJSPTitle() {
-        beginAt("/temp-sample-jsp-webapp");
+        beginAt("/sample28-jspwebapp-integrationtests");
         // clickLink("login");
         assertTitleEquals("A sample JSP");
         // setTextField("username", "test");
