@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<settings>
+  <pluginGroups>
+    <pluginGroup>org.twdata.maven</pluginGroup>
+    <pluginGroup>org.grails</pluginGroup>
+    <pluginGroup>org.mortbay.jetty</pluginGroup>
+  </pluginGroups>
+  
+  <mirrors>
+    <!--This is used to direct the public snapshots repo in the profile below over to a different nexus group -->
+    <mirror>
+      <id>nexus-public-snapshots</id>
+      <mirrorOf>public-snapshots</mirrorOf>
+      <url>http://localhost:8081/nexus/content/groups/public-snapshots</url>
+    </mirror>
+    
+    <!--This sends everything else to /public -->
+    <mirror>
+      <id>nexus-public-releases</id>
+      <mirrorOf>*,!sonar</mirrorOf>
+      <!-- Exclude the sonar local repo http://docs.codehaus.org/display/SONAR/Frequently+Asked+Questions -->
+      <url>http://localhost:8081/nexus/content/groups/public</url>
+    </mirror>
+  </mirrors>
+  
+  <profiles>
+    <!-- Default nexus redirected profile -->
+    <profile>
+      <id>nexusreleases</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://localhost:8081/nexus/content/groups/public</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://localhost:8081/nexus/content/groups/public</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <profile>
+      <!--this profile will allow snapshots to be searched when activated-->
+      <id>nexussnapshots</id>
+      <repositories>
+        <repository>
+          <id>public-snapshots</id>
+          <url>http://localhost:8081/nexus/content/groups/public-snapshots</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>public-snapshots</id>
+          <url>http://localhost:8081/nexus/content/groups/public-snaphots</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  
+  <activeProfiles>
+    <activeProfile>nexusreleases</activeProfile>
+    <activeProfile>nexussnapshots</activeProfile>
+  </activeProfiles>
+  
+  <servers>
+      <server>
+        <id>twdata-m2-repository</id>
+        <username>someone</username>
+        <password>apassword</password>
+      </server>
+      
+      <server>
+        <id>somesite.unfuddle.com</id>
+        <username>someone</username>
+        <password>apassword</password>
+      </server>
+  </servers>
+  
+  <!-- <properties>
+      <gpg.passphrase>somepassword</gpg.passphrase>
+  </properties> -->
+</settings>
