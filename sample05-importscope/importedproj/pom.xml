@@ -8,14 +8,50 @@
   <name>Echo Imported</name>
   <url>http://github.com/matthewmccullough/maven-training/tree/master</url>
   
+  <dependencyManagement>
+    <dependencies>
+      <!-- Will be imported, as <dependencyManagement> sections are the only type imported -->
+      <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.8.3</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.1</version>
+          <executions>
+            <execution>
+              <!-- Won't be imported, as <pluginManagement> sections are not imported -->
+              <id>echodir-imported-pluginmanagement</id>
+              <goals>
+                <goal>run</goal>
+              </goals>
+              <phase>validate</phase>
+              <inherited>false</inherited>
+              <configuration>
+                <tasks>
+                  <echo>Imported Proj PluginManagement, Build Dir: ${project.build.directory}</echo>
+                </tasks>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.1</version>
         <executions>
           <execution>
-            <id>echodir</id>
+            <!-- Won't be imported, as <plugin> sections are not imported -->
+            <id>echodir-imported-plugin</id>
             <goals>
               <goal>run</goal>
             </goals>
@@ -23,7 +59,7 @@
             <inherited>false</inherited>
             <configuration>
               <tasks>
-                <echo>Imported Proj, Build Dir: ${project.build.directory}</echo>
+                <echo>Imported Proj Plugin, Build Dir: ${project.build.directory}</echo>
               </tasks>
             </configuration>
           </execution>
