@@ -21,9 +21,13 @@
             <phase>package</phase>
             <configuration>
               <tasks>
+                <!-- http://docs.codehaus.org/display/MAVENUSER/MavenPropertiesGuide -->
                 <echo>ECHO1 Build Dir: ${project.build.directory}</echo>
                 <echo>ECHO1 Settings Offline: ${settings.offline}</echo>
                 <echo>ECHO1 Settings Local Repo: ${settings.localRepository}</echo>
+                <!-- Use of array navigation syntax in Maven properties -->
+                <!-- http://jira.codehaus.org/browse/PLXUTILS-37 -->
+                <echo>ECHO1 Second dependency: ${project.dependencies[1].artifactId}</echo>
               </tasks>
             </configuration>
           </execution>
@@ -31,4 +35,25 @@
       </plugin>
     </plugins>
   </build>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.4</version>
+    </dependency>
+  </dependencies>
+  
 </project>
