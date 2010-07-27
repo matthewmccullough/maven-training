@@ -28,6 +28,7 @@
                 <!-- Use of array navigation syntax in Maven properties -->
                 <!-- http://jira.codehaus.org/browse/PLXUTILS-37 -->
                 <echo>ECHO1 Second dependency: ${project.dependencies[1].artifactId}</echo>
+                <echo>ECHO1 Parent Version: ${parent.version}</echo>
               </tasks>
             </configuration>
           </execution>
