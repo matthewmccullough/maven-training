@@ -61,7 +61,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>tomcat-maven-plugin</artifactId>
-        <version>1.0-beta-1</version>
+        <version>1.0</version>
         <executions>
           <execution>
             <id>standalone-deploy</id>
@@ -77,7 +77,9 @@
             <goals>
               <goal>undeploy</goal>
             </goals>
-            <configuration></configuration>
+            <configuration>
+              <!-- <server>mylocaltomcat</server> -->
+            </configuration>
           </execution>
         </executions>
       </plugin>
