@@ -17,15 +17,13 @@
     limitations under the License.
 -->
 
-<!-- $Rev: 703071 $ $Date: 2008-10-09 01:49:17 -0500 (Thu, 09 Oct 2008) $ -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.superbiz</groupId>
+  <groupId>org.ambientideas.ejbtest</groupId>
   <artifactId>simple-stateless</artifactId>
   <packaging>jar</packaging>
   <version>1.1</version>
-  <name>OpenEJB :: Examples :: Simple Stateless Pojo</name>
+  <name>OpenEJB Examples - Simple Stateless Pojo</name>
   
   <build>
     <defaultGoal>install</defaultGoal>
@@ -44,14 +42,14 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.1.1</version>
         <configuration>
-          <mainClass>com.comverse.testejb.Test</mainClass>
+          <mainClass>com.ambientideas.testejb.Test</mainClass>
           <arguments>
             <!-- <argument>iiop://localhost:7001</argument> -->
             <!-- <argument>t3://localhost:8001,localhost:9001</argument> -->
             <!-- <argument>t3://localhost:8001,localhost:9001</argument> -->
             <!-- <argument>t3://10.230.20.48:8001</argument> -->
             <argument>t3://10.230.100.128:8001</argument>
-            <!--<argument>iiop://drdsun23:9200</argument>-->
+            <!--<argument>iiop://mainserver:9200</argument>-->
             <!--<argument>iiop://10.230.100.159:7001</argument>-->
             <!-- <argument>iiop://10.230.100.175:7001</argument> -->
           </arguments>
@@ -142,7 +140,7 @@
             <artifactId>wlclient</artifactId>
             <version>10.0</version>
             <scope>system</scope>
-            <systemPath>D:\CCRCSource\mccm03_view_CSM_MAINLATEST\usr1\arbor\3p_maven_repo\bea\wlfullclient-cmvt\10.0\wlfullclient-cmvt-10.0.jar</systemPath>
+            <systemPath>C:\bea\wlfullclient\10.0\wlfullclient-cmvt-10.0.jar</systemPath>
           </dependency>
         </dependencies>
       </profile>
@@ -156,18 +154,17 @@
             <artifactId>thinclient</artifactId>
             <version>3.1.0</version>
             <scope>system</scope>
-            <systemPath>D:\CCRCSource\mccm03_view_CSM_MAINLATEST\usr1\arbor\3p_maven_repo\com\ibm\ws\ejb-thinclient\7.0.0\ejb-thinclient-7.0.0.jar</systemPath>
+            <systemPath>C:\ibm\ws\ejb-thinclient\7.0.0\ejb-thinclient-7.0.0.jar</systemPath>
           </dependency>
           <dependency>
             <groupId>com.ibm</groupId>
             <artifactId>orb</artifactId>
             <version>3.1.0</version>
             <scope>system</scope>
-            <systemPath>D:\CCRCSource\mccm03_view_CSM_MAINLATEST\usr1\arbor\3p_maven_repo\com\ibm\ws\orb\7.0.0\orb-7.0.0.jar</systemPath>
+            <systemPath>C:\ibm\ws\orb\7.0.0\orb-7.0.0.jar</systemPath>
           </dependency>
         </dependencies>
       </profile>
       
     </profiles>
 </project>
-
