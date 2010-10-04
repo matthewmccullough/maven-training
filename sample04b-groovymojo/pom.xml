@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ambientideas</groupId>
-    <artifactId>sample-groovymojo</artifactId>
+    <artifactId>sample04b-groovymojo</artifactId>
     <name>Sample Project - Groovy Mojo</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
