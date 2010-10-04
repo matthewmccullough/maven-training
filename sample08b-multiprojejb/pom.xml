@@ -2,7 +2,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.ambientideas</groupId>
    <version>1.0</version>
-   <artifactId>project</artifactId>
+   <artifactId>sample08b-multiprojejb</artifactId>
    <packaging>pom</packaging>
    <name>Master Project</name>
    <modules>
