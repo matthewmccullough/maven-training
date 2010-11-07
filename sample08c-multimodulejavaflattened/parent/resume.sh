@@ -1,0 +1,1 @@
+mvn reactor:resume -Dfrom=sample-multimodulejava-module4
