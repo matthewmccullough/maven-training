@@ -9,6 +9,15 @@
   <url>http://maven.apache.org</url>
   
   
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.8.2</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
   <modules>
     <module>sample-multimodulejava-module1</module>
     <module>sample-multimodulejava-module2</module>
@@ -17,4 +26,8 @@
     <module>sample-multimodulejava-module5</module>
     <module>sample-multimodulejava-module6</module>
   </modules>
+  
+  <build>
+  <defaultGoal>install</defaultGoal>
+  </build>
 </project>
