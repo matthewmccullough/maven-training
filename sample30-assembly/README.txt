@@ -1,0 +1,1 @@
+This project showcases a multimodule build that gets turned into a ZIP via an assembly.
