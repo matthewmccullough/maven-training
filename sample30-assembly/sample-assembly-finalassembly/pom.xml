@@ -1,15 +1,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-      <groupId>com.ambientideas</groupId>
-      <artifactId>sample08-multimodulejava-parent</artifactId>
-      <version>1.0-SNAPSHOT</version>
-  </parent>
   
   <groupId>com.ambientideas</groupId>
   <artifactId>sample30-assembly-finalassembly</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>3.0</version>
   <name>Sample 30 - Assembly - Final Assembly</name>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.ambientideas</groupId>
+      <artifactId>sample30-assembly-module1</artifactId>
+      <version>LATEST</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.ambientideas</groupId>
+      <artifactId>sample30-assembly-module2</artifactId>
+      <version>LATEST</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assemble/bin.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
