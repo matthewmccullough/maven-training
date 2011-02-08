@@ -7,14 +7,21 @@
     <groupId>se.devoteam.maven.test</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
+  
   <groupId>se.devoteam.maven.test</groupId>
   <artifactId>sample27-rangefailure-module2</artifactId>
-
+  
   <dependencies>
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
       <version>[1.0.4]</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>se.devoteam.maven.test</groupId>
+      <artifactId>sample27-rangefailure-module1</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>
