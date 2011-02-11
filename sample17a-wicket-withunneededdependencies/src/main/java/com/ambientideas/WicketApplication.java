@@ -24,4 +24,8 @@ public class WicketApplication extends WebApplication
 		return HomePage.class;
 	}
 
+    @Deprecated
+    public void throwawayMethod() {
+        //Nothing
+    }
 }
