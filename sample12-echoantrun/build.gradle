@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.ambientideas'
+artifact = 'echo-antrun'
+version = '0.0.1-SNAPSHOT'
+
+description = """Sample Project - Echo Antrun"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+repositories {
+    mavenRepo urls: ["http://repo1.maven.org/maven2"]
+}
+
+dependencies {
+    compile "commons-io:commons-io:1.4"
+    testCompile "junit:junit:3.8.1"
+    testCompile "commons-collections:commons-collections:3.2.1"
+}
+
+task helloWorld(dependsOn: build){
+    println "Hello Gradle World!"
+    println "Group: ${project.group}"
+    println "Artifact: ${project.artifact}"
+    println "Version: ${project.version}"
+    println "Group: ${project.dependencies}"
+}
