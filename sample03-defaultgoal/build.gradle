@@ -2,9 +2,11 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'com.ambientideas'
+artifact = 'sample03-defaultgoal'
 version = '1.0-SNAPSHOT'
-
 description = """Sample Project - Default Goal"""
+
+defaultTasks "clean", "build"
 
 sourceCompatibility = 1.5
 targetCompatibility = 1.5
