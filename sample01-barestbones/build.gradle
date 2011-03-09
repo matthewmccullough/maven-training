@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.ambientideas'
+version = '1.0.2-SNAPSHOT'
+description = """A simple, bare-bones project"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+}

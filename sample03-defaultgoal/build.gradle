@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.ambientideas'
+version = '1.0-SNAPSHOT'
+
+description = """Sample Project - Default Goal"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+repositories {    
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "junit:junit:3.8.1"
+}
