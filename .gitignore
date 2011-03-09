@@ -3,3 +3,5 @@ target
 .project
 .settings
 sample11-svnscm.svn
+.gradle
+build
